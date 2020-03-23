@@ -1,11 +1,12 @@
-FROM ubuntu:latest
+FROM docker:19.03.2 as runtime
+LABEL "repository"="https://github.com/risfeng/aliyun-docker-image-build-push-action.git"
+LABEL "maintainer"="Risfeng"
 
-RUN apt-get update
+RUN apk update \
+    && apk upgrade \
+    && apk add --no-cache git
 
-RUN apt-get install sudo
-
-COPY "entrypoint.sh" "/entrypoint.sh"
-
-RUN chmod +x /entrypoint.sh
-
+ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
+
+FROM runtime

@@ -1,0 +1,34 @@
+name: "Aliyun Docker Images Build And Push"
+description: "GitHub Action For Aliyun Docker Hub Image Build And Push"
+author: "risfeng <risfeng@gmail.com>"
+branding:
+  icon: "cloud"
+  color: "blue"
+inputs:
+  registry_url:
+    description: "Aliyun Docker Registry Url, eg: registry.xxxxx.aliyuncs.com"
+    required: true
+  namespaces:
+    description: "Aliyun Docker Image Namespaces, eg: adotcode"
+    required: true
+  repository_name:
+    description: "Aliyun Docker Image Repository Name, eg: adc.ms.eureka"
+    required: true
+  user_name:
+    description: "Aliyun Docker Login UserName, from: https://cr.console.aliyun.com/"
+    required: true
+  password:
+    description: "Aliyun Docker Login Password, from: https://cr.console.aliyun.com/"
+    required: true
+  image_name:
+    description: "Image Build Name"
+    required: true
+  image_version:
+    description: "Image Build Version"
+    required: true
+  docker_file:
+    description: "Docker File Directory, Default Current Directory (.)"
+    required: false
+runs:
+  using: "docker"
+  image: "Dockerfile"

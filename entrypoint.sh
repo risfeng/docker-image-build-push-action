@@ -1,6 +1,5 @@
 #!/bin/bash
 echo "login docker start..."
-sudo apt-get update
 echo $INPUT_PASSWORD | sudo docker login --username=$INPUT_USER_NAME $INPUT_REGISTRY_URL --password-stdin
 echo "docker build start..."
 docker_file=$INPUT_DOCKER_FILE

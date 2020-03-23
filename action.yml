@@ -29,6 +29,7 @@ inputs:
   docker_file:
     description: "Docker File Directory, Default Current Directory (.)"
     required: false
+    default: "."
 runs:
   using: "docker"
   image: "Dockerfile"

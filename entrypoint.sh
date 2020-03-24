@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh -l
 echo "login docker start..."
 echo $INPUT_PASSWORD | sudo docker login --username=$INPUT_USER_NAME $INPUT_REGISTRY_URL --password-stdin
 echo "docker build start..."

@@ -1,24 +1,24 @@
-name: "Aliyun Docker Images Build And Push"
-description: "GitHub Action For Aliyun Docker Hub Image Build And Push"
+name: "Docker Images Build And Push"
+description: "GitHub Action For Docker Hub Image Build And Push"
 author: "risfeng <risfeng@gmail.com>"
 branding:
-  icon: "cloud"
-  color: "blue"
+  icon: "package"
+  color: "green"
 inputs:
   registry_url:
-    description: "Aliyun Docker Registry Url, eg: registry.xxxxx.aliyuncs.com"
+    description: "Docker Registry Url, eg: registry.xxxxx.cs.com"
     required: true
   namespaces:
-    description: "Aliyun Docker Image Namespaces, eg: adotcode"
+    description: "Docker Image Namespaces, eg: adotcode"
     required: true
   repository_name:
-    description: "Aliyun Docker Image Repository Name, eg: adc.ms.eureka"
+    description: "Docker Image Repository Name, eg: adc.ms.eureka"
     required: true
   user_name:
-    description: "Aliyun Docker Login UserName, from: https://cr.console.aliyun.com/"
+    description: "Docker Login UserName, from: https://cr.console..com/"
     required: true
   password:
-    description: "Aliyun Docker Login Password, from: https://cr.console.aliyun.com/"
+    description: "Docker Login Password, from: https://cr.console..com/"
     required: true
   image_version:
     description: "Image Build Version"
@@ -27,6 +27,9 @@ inputs:
     description: "Docker File Directory, Default Current Directory (.)"
     required: false
     default: "."
+outputs:
+  image_pull_url:
+    description: "Image Pull Url,eg: docker pull image_pull_url"
 runs:
   using: "docker"
   image: "Dockerfile"

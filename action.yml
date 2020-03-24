@@ -20,9 +20,6 @@ inputs:
   password:
     description: "Aliyun Docker Login Password, from: https://cr.console.aliyun.com/"
     required: true
-  image_name:
-    description: "Image Build Name"
-    required: true
   image_version:
     description: "Image Build Version"
     required: true

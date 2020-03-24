@@ -1,6 +1,6 @@
 FROM alpine:latest
-RUN apk add --no-cache openrc \
-    && apk add docker \
+
+RUN  apk add docker \
     && docker -v
 
 COPY entrypoint.sh /entrypoint.sh

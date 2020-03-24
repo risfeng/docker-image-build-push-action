@@ -34,14 +34,13 @@ jobs:
       - name: Build Docker Image
         uses: risfeng/aliyun-docker-image-build-push-action@master
         with:
-          registry_url: registry.us-east-1.aliyuncs.com
-          namespaces: adotcode
-          repository_name: adc.ms.eureka.usa
+          registry_url: 'registry.us-east-1.aliyuncs.com'
+          namespaces: 'adotcode'
+          repository_name: 'adc.ms.eureka.usa'
           user_name: ${{ secrets.ALIYUN_IMAGES_HUB_USER_NAME }}
           password: ${{ secrets.ALIYUN_IMAGES_HUB_TOKEN }}
-          image_name: adc.ms.eureka
-          image_version: v1.0
-          docker_file: .
+          image_version: 'v1.0'
+          docker_file: '.'
 ```
 
 其中 `registry_url、namespaces、repository_name、user_name、password` 为自己阿里云镜像仓库设置，`${{ secrets.ALIYUN_IMAGES_HUB_USER_NAME }} ${{ secrets.ALIYUN_IMAGES_HUB_TOKEN }}`是调用Github仓库settings配置的阿里云镜像仓库的登录用户名和密码，防止密码硬编码被泄漏，配置路径：Github代码仓库-->[settings]->[Secrets]中添加对应的Key。
@@ -58,6 +57,5 @@ jobs:
 | repository_name | 是 | 镜像仓库名称 |
 | user_name | 是 | 阿里云登录账户 |
 | password | 是 | 登录个人容器镜像服务后在[访问凭证]中设置的密码 |
-| image_name | 是 | 生成镜像的名称|
 | image_version | 是 | 生成镜像的版本，可以写死，也可以通过上下文自行动态赋值|
 | docker_file | 否 | 构建镜像的Dockerfile目录，默认当前目录（.）|
